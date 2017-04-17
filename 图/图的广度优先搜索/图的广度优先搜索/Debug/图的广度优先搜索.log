@@ -1,0 +1,23 @@
+﻿生成启动时间为 2017/1/11 11:19:46。
+     1>项目“E:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\图的广度优先搜索.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Graph.cpp "源.cpp"
+         Graph.cpp
+     1>e:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\graph.cpp(23): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\graph.cpp(34): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\graph.cpp(36): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\graph.cpp(45): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\graph.cpp(54): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\graph.cpp(56): warning C4018: “<”: 有符号/无符号不匹配
+         正在生成代码...
+         正在跳过...(未检测到相关更改)
+         源.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\数据结构与算法\数据结构代码\图\图的广度优先搜索\Debug\图的广度优先搜索.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\数据结构与算法\数据结构代码\图\图的广度优先搜索\Debug\图的广度优先搜索.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\数据结构与算法\数据结构代码\图\图的广度优先搜索\Debug\图的广度优先搜索.lib" /MACHINE:X86 Debug\Graph.obj
+         "Debug\源.obj"
+         图的广度优先搜索.vcxproj -> E:\数据结构与算法\数据结构代码\图\图的广度优先搜索\Debug\图的广度优先搜索.exe
+     1>已完成生成项目“E:\数据结构与算法\数据结构代码\图\图的广度优先搜索\图的广度优先搜索\图的广度优先搜索.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.70

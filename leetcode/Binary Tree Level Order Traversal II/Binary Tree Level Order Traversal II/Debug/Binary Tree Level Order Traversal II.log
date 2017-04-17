@@ -1,0 +1,15 @@
+﻿生成启动时间为 2016/11/13 15:44:21。
+     1>项目“E:\数据结构与算法\数据结构代码\leetcode\Binary Tree Level Order Traversal II\Binary Tree Level Order Traversal II\Binary Tree Level Order Traversal II.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "源.cpp"
+         源.cpp
+     1>e:\数据结构与算法\数据结构代码\leetcode\binary tree level order traversal ii\binary tree level order traversal ii\源.cpp(74): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\数据结构与算法\数据结构代码\leetcode\binary tree level order traversal ii\binary tree level order traversal ii\源.cpp(75): warning C4018: “<”: 有符号/无符号不匹配
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\数据结构与算法\数据结构代码\leetcode\Binary Tree Level Order Traversal II\Debug\Binary Tree Level Order Traversal II.exe" /INCREMENTAL /NOLOGO opencv_calib3d249.lib opencv_contrib249.lib opencv_core249.lib opencv_features2d249.lib opencv_flann249.lib opencv_gpu249.lib opencv_highgui249.lib opencv_imgproc249.lib opencv_legacy249.lib opencv_objdetect249.lib opencv_ts249.lib opencv_video249.lib opencv_nonfree249.lib opencv_ocl249.lib opencv_photo249.lib opencv_stitching249.lib opencv_superres249.lib opencv_videostab249.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\数据结构与算法\数据结构代码\leetcode\Binary Tree Level Order Traversal II\Debug\Binary Tree Level Order Traversal II.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\数据结构与算法\数据结构代码\leetcode\Binary Tree Level Order Traversal II\Debug\Binary Tree Level Order Traversal II.lib" /MACHINE:X86 "Debug\源.obj"
+         Binary Tree Level Order Traversal II.vcxproj -> E:\数据结构与算法\数据结构代码\leetcode\Binary Tree Level Order Traversal II\Debug\Binary Tree Level Order Traversal II.exe
+     1>已完成生成项目“E:\数据结构与算法\数据结构代码\leetcode\Binary Tree Level Order Traversal II\Binary Tree Level Order Traversal II\Binary Tree Level Order Traversal II.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.61

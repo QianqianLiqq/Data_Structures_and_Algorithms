@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "算法导论上的思想", "算法导论上的思想\算法导论上的思想.vcxproj", "{DCADB6FC-158B-468B-907D-A7E508D1C544}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCADB6FC-158B-468B-907D-A7E508D1C544}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCADB6FC-158B-468B-907D-A7E508D1C544}.Debug|Win32.Build.0 = Debug|Win32
+		{DCADB6FC-158B-468B-907D-A7E508D1C544}.Release|Win32.ActiveCfg = Release|Win32
+		{DCADB6FC-158B-468B-907D-A7E508D1C544}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
