@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 #include<stack>
 using namespace std;
 
@@ -19,36 +20,66 @@ struct StackElement{
 	Tags tag;
 };
 
-void PostOrderWithoutRecusion(BinaryTreeNode *root){
-	StackElement element;
-	stack<StackElement> stack;
-	if (root == nullptr)
-		return;
-	BinaryTreeNode *p = root;
-	while (true){
-		while (p){
-			element.pointer = p;
-			element.tag = Left;
-			stack.push(element);
-			p = p->left;
+//void PostOrderWithoutRecusion(BinaryTreeNode *root){
+//	StackElement element;
+//	stack<StackElement> stack;
+//	if (root == nullptr)
+//		return;
+//	BinaryTreeNode *p = root;
+//	while (true){
+//		while (p){
+//			element.pointer = p;
+//			element.tag = Left;
+//			stack.push(element);
+//			p = p->left;
+//		}
+//		element = stack.top();
+//		stack.pop();
+//		p = element.pointer;
+//		while (element.tag == Right){
+//			cout << p->val << endl;
+//			if (stack.empty())
+//				return;
+//			else{
+//				element = stack.top();
+//				stack.pop();
+//				p = element.pointer;
+//			}
+//		}
+//		element.tag = Right;
+//		stack.push(element);
+//		p = p->right;
+//	}
+//}
+
+vector<int> postorderTraversal(BinaryTreeNode *root) {
+	vector<int> vec;
+	stack<BinaryTreeNode *> st;
+	BinaryTreeNode *temp = NULL, *current = root;
+	if (root == NULL)
+		return vec;
+	while (!st.empty() || current)
+	{
+		while (current)
+		{
+			st.push(current);
+			current = current->left;
 		}
-		element = stack.top();
-		stack.pop();
-		p = element.pointer;
-		while (element.tag == Right){
-			cout << p->val << endl;
-			if (stack.empty())
-				return;
-			else{
-				element = stack.top();
-				stack.pop();
-				p = element.pointer;
-			}
+		current = st.top();
+		if (current->left == temp&&current->right)
+		{
+			current = current->right;
+			temp = NULL;
 		}
-		element.tag = Right;
-		stack.push(element);
-		p = p->right;
+		else
+		{
+			vec.push_back(current->val);
+			st.pop();
+			temp = current;
+			current = NULL;
+		}
 	}
+	return vec;
 }
 
 int main(){
@@ -59,7 +90,9 @@ int main(){
 	root->right->left = new BinaryTreeNode(5);
 	root->right->right = new BinaryTreeNode(6);
 	root->left->left->right = new BinaryTreeNode(7);
-	PostOrderWithoutRecusion(root);
+	vector<int> postorder = postorderTraversal(root);
+	for (int i = 0; i < postorder.size(); ++i)
+		cout << postorder[i] << endl;
 	system("pause");
 	return 0;
 }

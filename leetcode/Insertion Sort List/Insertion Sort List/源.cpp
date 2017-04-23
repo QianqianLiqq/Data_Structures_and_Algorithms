@@ -8,7 +8,7 @@
 
 class Solution {
 public:
-	ListNode* insertionSortList(ListNode* head) {
+	/*ListNode* insertionSortList(ListNode* head) {
 		if (!head)
 			return nullptr;
 		ListNode* Head = new ListNode(-1);
@@ -40,14 +40,53 @@ public:
 			}
 		}
 		return Head->next;
+	}*/
+	ListNode *insertionSortList(ListNode *head) {
+		if (head == nullptr || head->next == nullptr)
+			return head;
+		ListNode *list = new ListNode(0);
+		list->next = head;
+		ListNode *cur = head->next;
+		ListNode *curprev = head;
+		while (cur){
+			ListNode *node = list->next;
+			ListNode *prev = list;
+			while (node != cur){
+				if (cur->val>node->val){
+					node = node->next;
+					prev = prev->next;
+				}
+				else{
+					curprev->next = cur->next;
+					prev->next = cur;
+					cur->next = node;
+					break;
+				}
+			}
+			if (node == cur){
+				curprev = curprev->next;
+				cur = cur->next;
+			}
+			else
+				cur = curprev->next;
+
+		}
+		return list->next;
 	}
 };
 
 int main(){
-	ListNode* list = new ListNode(4);
+	ListNode* list = new ListNode(3);
 	list->next = new ListNode(2);
 	list->next->next = new ListNode(1);
-	list->next->next->next = new ListNode(3);
+	//list->next->next->next = new ListNode(3);
 	Solution s;
 	ListNode* sort = s.insertionSortList(list);
+	ListNode* node = sort;
+	while (node){
+		std::cout << node->val << std::endl;
+		node = node->next;
+	}
+	system("pause");
+	return 0;
 }

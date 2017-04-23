@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stack>
+#include<vector>
 using namespace std;
 
 enum Tags{Left,Right};
@@ -19,7 +20,7 @@ struct StackElement{
 	Tags tag;
 };
 
-void PostOrderWithoutRecusion(BinaryTreeNode *root){
+void PreOrderWithoutRecusion(BinaryTreeNode *root){
 	StackElement element;
 	stack<StackElement> stack;
 	if (root == nullptr)
@@ -52,6 +53,30 @@ void PostOrderWithoutRecusion(BinaryTreeNode *root){
 	}
 }
 
+vector<int> preorderTraversal(BinaryTreeNode *root) {
+	vector<int> vec;
+	stack<BinaryTreeNode *> st;
+	BinaryTreeNode  *current = root;
+	if (root == NULL)
+		return vec;
+	while (!st.empty() || current)
+	{
+		while (current)
+		{
+			vec.push_back(current->val);
+			st.push(current);
+			current = current->left;
+		}
+		if (!st.empty()){
+			current = st.top();
+			st.pop();
+			current = current->right;
+		}
+	}
+	return vec;
+}
+
+
 int main(){
 	BinaryTreeNode *root = new BinaryTreeNode(1);
 	root->left = new BinaryTreeNode(2);
@@ -60,7 +85,11 @@ int main(){
 	root->right->left = new BinaryTreeNode(5);
 	root->right->right = new BinaryTreeNode(6);
 	root->left->left->right = new BinaryTreeNode(7);
-	PostOrderWithoutRecusion(root);
+	root->left->left->right ->left= new BinaryTreeNode(8);
+	//PreOrderWithoutRecusion(root);
+	vector<int> preorder = preorderTraversal(root);
+	for (int i = 0; i < preorder.size(); ++i)
+		cout << preorder[i] << endl;
 	system("pause");
 	return 0;
 }

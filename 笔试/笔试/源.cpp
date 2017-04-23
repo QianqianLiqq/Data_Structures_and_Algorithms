@@ -699,12 +699,269 @@ vector<int> isprime(int n){
 	return prime;
 }
 
+//void QuickSort(ListNode *res, vector<int>& data, vector<ListNode *>& nodeVec, int left, int right, int length){
+//	if (left>right)
+//		return;
+//	int i = left, j = right;
+//	int key = data[left];
+//	ListNode *keyN = nodeVec[left];
+//	while (i != j){
+//		while (i<j&&data[j]>=key)
+//			--j;
+//		while (i<j&&data[i]<=key)
+//			++i;
+//		if (i<j){
+//			int temp = data[i];
+//			data[i] = data[j];
+//			data[j] = temp;
+//			nodeVec[i - 1]->next = nodeVec[j];
+//			nodeVec[j]->next = nodeVec[i + 1];
+//			nodeVec[j - 1]->next = nodeVec[i];
+//			if (j == right)
+//				nodeVec[i]->next = nullptr;
+//			else
+//				nodeVec[i]->next = nodeVec[j + 1];
+//			ListNode *node = nodeVec[i];
+//			nodeVec[i] = nodeVec[j];
+//			nodeVec[j] = node;
+//		}
+//	}
+//	data[left] = data[i];
+//	data[i] = key;
+//	if (left == 0)
+//		res->next = nodeVec[i];
+//	if (i != 0){
+//		nodeVec[i - 1]->next = nodeVec[left];
+//		nodeVec[i]->next = nodeVec[left + 1];
+//		if (i == length-1)
+//			nodeVec[left]->next = nullptr;
+//		else
+//			nodeVec[left]->next = nodeVec[i + 1];
+//	}
+//	nodeVec[left] = nodeVec[i];
+//	nodeVec[i] = keyN;
+//	QuickSort(res, data, nodeVec, left, i - 1, length);
+//	QuickSort(res, data, nodeVec, i + 1, right, length);
+//}
+//ListNode *sortList(ListNode *head) {
+//	if (head == nullptr || head->next == nullptr)
+//		return head;	
+//	ListNode *res = new ListNode(0);
+//	res->next = head;
+//	vector<ListNode *> nodeVec;
+//	vector<int> nodeData;
+//	ListNode* node = head;
+//	int length = 0;
+//	while (node){
+//		nodeVec.push_back(node);
+//		nodeData.push_back(node->val);
+//		node = node->next;
+//		length++;
+//	}
+//	QuickSort(res, nodeData, nodeVec, 0, length - 1, length);
+//	return res->next;
+//}
+
+ListNode *merge(ListNode *left, ListNode *right) {
+	ListNode dummy(0);
+	ListNode *p = &dummy;
+	while (left && right) {
+		if (left->val < right->val) {
+			p->next = left;
+			left = left->next;
+		}
+		else {
+			p->next = right;
+			right = right->next;
+		}
+		p = p->next;
+	}
+	if (left) p->next = left;
+	if (right) p->next = right;
+	return dummy.next;
+}
+ListNode *sortList(ListNode *head) {
+	if (!head || !head->next) return head;
+
+	ListNode* p = head, *q = head->next;
+	while (q && q->next) {
+		p = p->next;
+		q = q->next->next;
+	}
+
+	ListNode* left = sortList(p->next);
+	p->next = NULL;
+	ListNode* right = sortList(head);
+
+	return merge(left, right);
+}
+
+void convert(int data, char c){
+	if (c == ' '){
+		if (data == 1){
+			for (int i = 0; i<4; ++i)
+				cout << "*" << endl;
+			cout << "*";
+		}
+		else if (data == 2){
+			cout << "***" << endl;
+			cout << "  *" << endl;
+			cout << "***" << endl;
+			cout << "*  " << endl;
+			cout << "***";
+		}
+		else if (data == 3){
+			for (int i = 0; i<2; ++i){
+				cout << "***" << endl;
+				cout << "  *" << endl;
+			}
+			cout << "***";
+		}
+		else if (data == 4){
+			for (int i = 0; i<2; ++i)
+				cout << "* *" << endl;
+			for (int i = 0; i<2; ++i)
+				cout << "***" << endl;
+			cout << "  *" << endl;
+			cout << "  *";
+		}
+		else if (data == 5){
+			cout << "***" << endl;
+			cout << "*  " << endl;
+			cout << "***" << endl;
+			cout << "  *" << endl;
+			cout << "***";
+		}
+		else if (data == 6){
+			cout << "***" << endl;
+			cout << "*  " << endl;
+			cout << "***" << endl;
+			cout << "* *" << endl;
+			cout << "***";
+		}
+		else if (data == 7){
+			cout << "***" << endl;
+			for (int i = 0; i<3; ++i)
+				cout << "  *" << endl;
+			cout << "  *";
+		}
+		else if (data == 8){
+			for (int i = 0; i<2; ++i){
+				cout << "***" << endl;
+				cout << "* *" << endl;
+			}
+			cout << "***";
+		}
+		else if (data == 9){
+			cout << "***" << endl;
+			cout << "* *" << endl;
+			cout << "***" << endl;
+			cout << "  *" << endl;
+			cout << "***";
+		}
+		else if (data == 0){
+			cout << "***" << endl;
+			for (int i = 0; i<2; ++i)
+				cout << "* *" << endl;
+			cout << "***";
+		}
+	}
+	else if (c != ' '){
+		if (c == '+'){
+			cout << " * " << endl;
+			cout << "***" << endl;
+			cout << " * ";
+		}
+		else if (c == '-'){
+			cout << "***";
+		}
+		else if (c == '*'){
+			cout << "* *" << endl;
+			cout << " * " << endl;
+			cout << "* *";
+		}
+		else if (c == '/'){
+			cout << "  *" << endl;
+			cout << " * " << endl;
+			cout << "*  ";
+		}
+		else if (c == '='){
+			cout << "***" << endl;
+			cout << endl;
+			cout << endl;
+			cout << "***";
+		}
+		else if (c == '.'){
+			for (int i = 0; i<4; ++i)
+				cout << endl;
+			cout << "**" << endl;
+			cout << "**";
+		}
+	}
+}
+
+void reverse(string &str){
+	int length = str.size();
+	if (length <= 1)
+		return;
+	int i = 0, j = length - 1;
+	while (i<j){
+		char temp = str[i];
+		str[i] = str[j];
+		str[j] = temp;
+		++i;
+		--j;
+	}
+	return;
+}
+
 int main(){
-	vector<int> prime = isprime(100);
+	vector<int> num1 = { 1, 2, 3, 4 };
+	vector<int> num2 = { 1, 7, 4, 9 };
+	map<int, int> m;
+	for (int i = 0; i < num1.size(); ++i){
+		m[num1[i]]++;
+	}
+	for (int i = 0; i < num2.size(); ++i){
+		m[num2[i]]++;
+	}
+
+	//int n = 0, w = 0, h = 0;
+	//cin >> n;
+	//vector<pair<int, int>> data;
+	//for (int i = 0; i < n; ++i) {
+	//	cin >> w >> h;
+	//	data.push_back({ w, h });
+	//}
+	////vector<vector<int>> data = { { 6, 7 }, { 5, 4 }, { 6, 4 }, { 3, 9 } };
+	//sort(data.begin(), data.end());
+	//vector<int> dp(n, 1);
+	//for (int i = 1; i < n; ++i) {
+	//	for (int j = 0; j < i; ++j) {
+	//		if (data[i].first > data[j].first && data[i].second > data[j].second && dp[i]<dp[j] + 1) {
+	//			dp[i] = dp[j] + 1;
+	//		}
+	//	}
+	//}
+	//auto it = max_element(dp.begin(), dp.end());
+	//cout << *it << endl;
+
+	/*ListNode* head = new ListNode(4);
+	head->next = new ListNode(3);
+	head->next->next = new ListNode(2);
+	head->next->next->next = new ListNode(1);
+	ListNode* list = sortList(head);
+	ListNode* node = list;
+	while (node){
+		cout << node->val << endl;
+		node = node->next;
+	}*/
+
+	/*vector<int> prime = isprime(100);
 	for (int i = 0; i < prime.size(); ++i)
 		if (prime[i])
 			cout << i << " ";
-	cout << endl;
+	cout << endl;*/
 
 	/*int data;
 	cin >> data;

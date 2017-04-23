@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stack>
+#include<vector>
 using namespace std;
 
 enum Tags{Left,Right};
@@ -19,7 +20,7 @@ struct StackElement{
 	Tags tag;
 };
 
-void PostOrderWithoutRecusion(BinaryTreeNode *root){
+void InOrderWithoutRecusion(BinaryTreeNode *root){
 	StackElement element;
 	stack<StackElement> stack;
 	if (root == nullptr)
@@ -53,6 +54,28 @@ void PostOrderWithoutRecusion(BinaryTreeNode *root){
 	}
 }
 
+vector<int> inorderTraversal(BinaryTreeNode *root) {
+	vector<int> vec;
+	stack<BinaryTreeNode*> s;
+	BinaryTreeNode *p = root;
+	while (p != NULL || !s.empty())
+	{
+		while (p != NULL)
+		{
+			s.push(p);
+			p = p->left;
+		}
+		if (!s.empty())
+		{
+			p = s.top();
+			vec.push_back(p->val);
+			s.pop();
+			p = p->right;
+		}
+	}
+	return vec;
+}
+
 int main(){
 	BinaryTreeNode *root = new BinaryTreeNode(1);
 	root->left = new BinaryTreeNode(2);
@@ -64,7 +87,10 @@ int main(){
 	root->left->left->right = new BinaryTreeNode(7);
 	root->left->left->right->left = new BinaryTreeNode(8);
 	root->left->left->right->right = new BinaryTreeNode(9);
-	PostOrderWithoutRecusion(root);
+	//InOrderWithoutRecusion(root);
+	vector<int> inorder = inorderTraversal(root);
+	for (int i = 0; i < inorder.size(); ++i)
+		cout << inorder[i] << endl;
 	system("pause");
 	return 0;
 }
